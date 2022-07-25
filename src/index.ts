@@ -427,3 +427,7 @@ export async function lowerPrice({
   await signSellOrder(signer, order)
   await apiClient.postLowerPrice(order, list.id)
 }
+
+export function getSharedAPIClientCx(network: Network){
+  return getSharedAPIClient(network)
+}

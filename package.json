@@ -1,5 +1,5 @@
 {
-  "version": "0.1.5",
+  "version": "0.1.6",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -32,8 +32,8 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "@x2y2-io/sdk",
-  "author": "x2y2",
+  "name": "x2y2-sdk-cx",
+  "author": "cx",
   "module": "dist/x2y2-sdk.esm.js",
   "size-limit": [
     {
