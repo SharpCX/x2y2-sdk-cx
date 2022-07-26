@@ -124,6 +124,35 @@ export class APIClient {
     return decodeCancelInput(cancelData.input)
   }
 
+  async fetchOrderSignRaw(
+      caller: string,
+      op: number,
+      orderId: number,
+      currency: string,
+      price: string,
+      tokenId: string
+  ): Promise<RunInput | undefined> {
+    const { data } = await this._post('/api/orders/sign', {
+      caller,
+      op,
+      amountToEth: '0',
+      amountToWeth: '0',
+      items: [{ orderId, currency, price, tokenId }],
+    })
+    return data
+  }
+
+  async getSellOrderRaw(maker: string, tokenAddress: string, tokenId: string) {
+    const params: Record<string, string> = {
+      maker,
+      contract: tokenAddress,
+      token_id: tokenId,
+      network_id: getNetworkMeta(this.network).id.toString(),
+    }
+    const { data } = await this._get('/v1/orders', params)
+    return data
+  }
+
   async fetchOrderSign(
     caller: string,
     op: number,
